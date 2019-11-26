@@ -6,13 +6,17 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 
+import {MenubarModule} from 'primeng/menubar';
+
 
 @NgModule({
   declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    TranslateModule
+    TranslateModule,
+    MenubarModule
+    
   ]
 })
 export class LayoutModule { }
