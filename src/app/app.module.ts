@@ -8,6 +8,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthGuard } from './shared';
 import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module'
 import { HttpClientModule } from '@angular/common/http';
+import { GeneralService } from './shared/services/general.service';
+import { AuthenticationService } from './shared/services/authentication.service';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     LanguageTranslationModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, GeneralService,AuthenticationService],
   bootstrap: [AppComponent]
 }) 
 export class AppModule { }

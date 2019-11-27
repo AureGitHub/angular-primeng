@@ -4,9 +4,10 @@ import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
 import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
+import { ListaPartidosComponent } from './components/lista-partidos/lista-partidos.component';
 
 @NgModule({
-  declarations: [InicioComponent],
+  declarations: [InicioComponent, ListaPartidosComponent],
   imports: [
     CommonModule,
     InicioRoutingModule,

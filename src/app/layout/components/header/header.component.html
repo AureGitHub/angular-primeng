@@ -1,1 +1,15 @@
-<p-menubar [model]="items"></p-menubar>
+
+  <div class="ui-g">    
+    <div class="ui-g-12 ui-md-12 ui-lg-2 center">
+      {{title}}     
+      </div>
+      <div class="ui-g-12 ui-md-12 ui-lg-10 center">          
+            <p-menubar  [model]="items"></p-menubar>
+        </div>      
+  </div>
+
+  <p-button label="Click"  (click)="login()"></p-button>
+
+  {{currentUser.username}}
+
+
