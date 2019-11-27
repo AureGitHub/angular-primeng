@@ -13,11 +13,11 @@ import { User } from 'src/app/shared/models/user';
 })
 export class HeaderComponent implements OnInit {
     items: MenuItem[];
-    
+
     title: string;
 
     currentUser: User;
-    
+
     constructor(
         private authenticationService: AuthenticationService,
         private generalService: GeneralService,
@@ -30,10 +30,10 @@ export class HeaderComponent implements OnInit {
 
 
     login(){
-        
 
-        
-    
+      this.authenticationService.login1();
+
+
     }
 
     ngOnInit() {
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
                 label: 'Conectado',
                 icon: 'pi pi-fw pi-file',
                 items: [{
-                        label: 'New', 
+                        label: 'New',
                         icon: 'pi pi-fw pi-plus',
                         items: [
                             {label: 'Project'},
@@ -72,11 +72,11 @@ export class HeaderComponent implements OnInit {
                         label: 'Contents'
                     },
                     {
-                        label: 'Search', 
-                        icon: 'pi pi-fw pi-search', 
+                        label: 'Search',
+                        icon: 'pi pi-fw pi-search',
                         items: [
                             {
-                                label: 'Text', 
+                                label: 'Text',
                                 items: [
                                     {
                                         label: 'Workspace'
@@ -117,7 +117,7 @@ export class HeaderComponent implements OnInit {
         ];
     }
 
-   
 
- 
+
+
 }

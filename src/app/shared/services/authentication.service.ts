@@ -10,7 +10,7 @@ import { User } from '../models/user';
 })
 export class AuthenticationService {
 
-  private currentUserSubject: BehaviorSubject<User>; 
+  private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
     constructor(private http: HttpClient) {
@@ -32,17 +32,17 @@ export class AuthenticationService {
             }));
     }
 
-    login1(username, password) {
+    login1() {
 
       let user : User = {
         id : 1,
         username : 'pepe'
       };
-              
-      localStorage.setItem('currentUser', JSON.stringify(user));              
+
+      localStorage.setItem('currentUser', JSON.stringify(user));
       this.currentUserSubject.next(user);
-       
- 
+
+
   }
 
     logout() {
