@@ -12,6 +12,7 @@ import { GeneralService } from './shared/services/general.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,8 +24,9 @@ import { AuthenticationService } from './shared/services/authentication.service'
     CalendarModule,
     HttpClientModule,
     LanguageTranslationModule
+
   ],
-  providers: [AuthGuard, GeneralService,AuthenticationService],
+  providers: [AuthGuard, GeneralService, AuthenticationService],
   bootstrap: [AppComponent]
 }) 
 export class AppModule { }

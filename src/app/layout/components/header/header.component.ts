@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { MenuItem } from 'primeng/components/common/menuitem';
@@ -18,6 +18,8 @@ export class HeaderComponent implements OnInit {
 
     currentUser: User;
 
+    @Output() public sidenavToggle = new EventEmitter();
+
     constructor(
         private authenticationService: AuthenticationService,
         private generalService: GeneralService,
@@ -28,6 +30,9 @@ export class HeaderComponent implements OnInit {
 
     }
 
+    public onToggleSidenav = () => {
+        this.sidenavToggle.emit();
+      }
 
     login(){
 

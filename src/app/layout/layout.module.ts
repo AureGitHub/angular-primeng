@@ -5,9 +5,9 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatMenuModule } from  '@angular/material';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
-import {MenubarModule} from 'primeng/menubar';
-import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
@@ -15,9 +15,13 @@ import {ButtonModule} from 'primeng/button';
     CommonModule,
     LayoutRoutingModule,
     TranslateModule,
-    MenubarModule,
-    ButtonModule
-    
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatMenuModule
   ]
 })
 export class LayoutModule { }

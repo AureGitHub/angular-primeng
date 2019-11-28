@@ -1,15 +1,20 @@
-
-  <div class="ui-g">    
-    <div class="ui-g-12 ui-md-12 ui-lg-2 center">
-      {{title}}     
-      </div>
-      <div class="ui-g-12 ui-md-12 ui-lg-10 center">          
-            <p-menubar  [model]="items"></p-menubar>
-        </div>      
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
   </div>
-
-  <p-button label="Click"  (click)="login()"></p-button>
-
-  {{currentUser.username}}
-
-
+  <div>
+      <a routerLink="/home">Owner-Account</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+              <a routerLink="/owner">Owner Actions</a>
+          </li>
+          <li>
+              <a routerLink="/account">Account Actions</a>
+          </li>
+      </ul>
+  </div>
+</mat-toolbar>
