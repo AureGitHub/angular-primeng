@@ -7,10 +7,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatMenuModule } from  '@angular/material';
 import {FlexLayoutModule} from "@angular/flex-layout";
-
+import { AlertComponent } from './components/alert/alert.component';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
-  declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
+  declarations: [LayoutComponent, SidebarComponent, HeaderComponent,AlertComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
@@ -21,7 +22,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    MatMenuModule
+    MatMenuModule,
+    ToastModule
   ]
 })
 export class LayoutModule { }

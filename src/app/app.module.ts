@@ -10,6 +10,8 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { HttpClientModule } from '@angular/common/http';
 import { GeneralService } from './shared/services/general.service';
 import { AuthenticationService } from './shared/services/authentication.service';
+import { AlertService } from './shared/services/alert.service';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 
 
@@ -26,7 +28,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
     LanguageTranslationModule
 
   ],
-  providers: [AuthGuard, GeneralService, AuthenticationService],
+  providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService],
   bootstrap: [AppComponent]
-}) 
+})
 export class AppModule { }
