@@ -1,33 +1,14 @@
+
+<app-header></app-header>
 <!--
-<app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+
 <mat-sidenav-container>
 <mat-sidenav #sidenav role="navigation">
     <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
 </mat-sidenav>
 </mat-sidenav-container>
 -->
-<mat-toolbar color="primary">
 
-    <button mat-button routerLink="/">
-    <mat-icon>home</mat-icon> 
-        {{title}}</button>
-
-    <!-- This fills the remaining space of the current row -->
-    <span class="fill-remaining-space"></span>
-    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-        <button mat-button routerLink="/products">Products</button>
-        <button mat-button routerLink="/dashboard">Dashboard</button>
-    </div>
-    <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
-     <mat-icon>menu</mat-icon>
-    </button>
-
-</mat-toolbar>
-<mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item routerLink="/products">Products</button>
-    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
-    <!--<button mat-menu-item>Help</button>-->
-</mat-menu>
 
 <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
     <router-outlet></router-outlet>

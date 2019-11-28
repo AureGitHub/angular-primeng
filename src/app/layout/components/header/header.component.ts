@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
     currentUser: User;
 
-    @Output() public sidenavToggle = new EventEmitter();
+
 
     constructor(
         private authenticationService: AuthenticationService,
@@ -30,9 +30,7 @@ export class HeaderComponent implements OnInit {
 
     }
 
-    public onToggleSidenav = () => {
-        this.sidenavToggle.emit();
-      }
+
 
     login(){
 
