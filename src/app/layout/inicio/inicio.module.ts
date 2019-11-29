@@ -5,6 +5,7 @@ import { InicioComponent } from './inicio.component';
 import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
 import { ListaPartidosComponent } from './components/lista-partidos/lista-partidos.component';
+import { MatButtonModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [InicioComponent, ListaPartidosComponent],
@@ -12,7 +13,9 @@ import { ListaPartidosComponent } from './components/lista-partidos/lista-partid
     CommonModule,
     InicioRoutingModule,
     CalendarModule,
-    MenubarModule
+    MenubarModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class InicioModule { }

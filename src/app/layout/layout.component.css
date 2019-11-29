@@ -1,0 +1,7 @@
+.aure-container {   
+    width: 98%; 
+    height: 85%;
+    margin : 15px;
+    background-image: url('../../assets/images/fondoLayout.jpg');
+    background-repeat: no-repeat;background-size: cover;
+  }

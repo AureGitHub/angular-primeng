@@ -1,15 +1,9 @@
 
 <app-header></app-header>
-<!--
 
-<mat-sidenav-container>
-<mat-sidenav #sidenav role="navigation">
-    <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
-</mat-sidenav>
-</mat-sidenav-container>
--->
-
+<div class="aure-container">
 <alert></alert>
 <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
     <router-outlet></router-outlet>
 </section>
+</div>

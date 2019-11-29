@@ -1,14 +1,22 @@
 <mat-toolbar color="primary">
 
   <button mat-button routerLink="/">
-  <mat-icon>home</mat-icon> 
+    <img src="assets/images/ptePragaColor.png" width="50px" class="user-avatar" />  
       {{title}}</button>
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      <button mat-button routerLink="/products">Products</button>
-      <button mat-button routerLink="/dashboard">Dashboard</button>
+      <button mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+
+      <button mat-mini-fab routerLink="/login"  title="login">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+
+      
   </div>
   <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
    <mat-icon>menu</mat-icon>
@@ -16,7 +24,8 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item routerLink="/products">Products</button>
-  <button mat-menu-item routerLink="/dashboard">Dashboard</button>
-  <!--<button mat-menu-item>Help</button>-->
+  <button mat-menu-item routerLink="/"><mat-icon color="warn">exit_to_app</mat-icon></button>  
+  <button mat-menu-item routerLink="/login"><mat-icon color="primary">account_circle</mat-icon></button>    
+
+  
 </mat-menu>
