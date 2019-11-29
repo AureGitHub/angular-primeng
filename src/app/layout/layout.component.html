@@ -1,9 +1,11 @@
 
 <app-header></app-header>
 
-<div class="aure-container">
-<alert></alert>
-<section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
-    <router-outlet></router-outlet>
-</section>
-</div>
+<mat-card class="aure-container">
+        <alert></alert>
+        <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+            <router-outlet></router-outlet>
+        </section>
+</mat-card>
+
+
