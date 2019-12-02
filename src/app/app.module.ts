@@ -14,7 +14,6 @@ import { AlertService } from './shared/services/alert.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +25,6 @@ import { MessageService } from 'primeng/components/common/messageservice';
     CalendarModule,
     HttpClientModule,
     LanguageTranslationModule
-
   ],
   providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService],
   bootstrap: [AppComponent]

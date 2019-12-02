@@ -22,28 +22,20 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<any>(`/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
+    login(email, password): Observable<boolean> {
+
+
+        return
+        this.http.get<User[]>('../../../assets/fake/user.json')
+        .subscribe(users => {
+            let user = users.find(item => item.email === email && item.password ===  password );
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            this.currentUserSubject.next(user);
+            return user!=null;
+        });
+            
     }
 
-    login1() {
-
-      let user : User = {
-        id : 1,
-        username : 'pepe'
-      };
-
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      this.currentUserSubject.next(user);
-
-
-  }
 
     logout() {
         // remove user from local storage and set current user to null

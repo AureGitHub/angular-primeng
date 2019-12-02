@@ -1,0 +1,30 @@
+<section fxLayout="row wrap" fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="100%">
+      <mat-card-title>Login</mat-card-title>
+      <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="onsubmit()" fxLayout="column wrap"
+        fxLayoutAlign="center center" fxLayoutGap="10px">
+        <mat-card-content>
+  
+          <mat-form-field>
+            <input matInput type="email" placeholder="email" formControlName="email" id="email">
+            <mat-hint align="end">formato de email correcto</mat-hint>
+            <mat-error *ngIf="hasError('email', 'email')">formato de email incorrecto</mat-error>            
+          </mat-form-field>
+  
+       
+  
+          <mat-form-field>
+            <input matInput type="password" placeholder="password" formControlName="password">
+            <mat-hint align="end">6 carácteres mínimo</mat-hint>            
+            <mat-error *ngIf="hasError('password', 'minLength')">La password debe ser min de 6 carácteres</mat-error>
+          </mat-form-field>
+  
+        </mat-card-content>
+
+        <mat-card-actions align="center">
+          <button mat-fab color="primary" [disabled]="!loginForm.valid">Login</button>
+          <button type="button" mat-fab color="warn" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </section>

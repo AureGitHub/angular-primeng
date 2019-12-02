@@ -9,6 +9,7 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'inicio', pathMatch: 'prefix' },
             { path: 'inicio', loadChildren: () => import('./inicio/inicio.module').then(m => m.InicioModule) },
+            { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
         ]
     }
 ];
