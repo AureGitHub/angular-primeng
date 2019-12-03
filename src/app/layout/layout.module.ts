@@ -8,17 +8,20 @@ import { TranslateModule } from '@ngx-translate/core';
 import {ToastModule} from 'primeng/toast';
 import { AlertComponent } from './components/alert/alert.component';
 import { MaterialModule } from '../material/material.module';
-
+import {ButtonModule} from 'primeng/button';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
-  declarations: [LayoutComponent,  HeaderComponent, AlertComponent],
+  declarations: [LayoutComponent,  HeaderComponent, AlertComponent, DialogComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     TranslateModule,
     ToastModule,
-    MaterialModule
+    MaterialModule,
+    ButtonModule
 
-  ]
+  ],
+  entryComponents: [DialogComponent],
 })
 export class LayoutModule { }

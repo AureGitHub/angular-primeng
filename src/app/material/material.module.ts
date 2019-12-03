@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatMenuModule,
          MatTableModule, MatSortModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatProgressBarModule, MatCheckboxModule,
          MatProgressSpinnerModule, MatCardModule, MatSelectModule, MatExpansionModule, MatDatepickerModule, MatNativeDateModule , 
-         MatDialogModule} from '@angular/material';
+         MatDialogModule,
+         MatGridListModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     MatTabsModule,
     MatSidenavModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ],
   exports: [
     MatDialogModule,
@@ -54,7 +56,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatToolbarModule,
     MatTabsModule,
     MatSidenavModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ],
   declarations: []
 })

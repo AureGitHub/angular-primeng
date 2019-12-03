@@ -1,4 +1,4 @@
-
+<div class="header-general">
 <mat-toolbar color="primary">
 
   <button mat-button routerLink="/">
@@ -7,29 +7,12 @@
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
+  <mat-icon  class="header-button-login" routerLink="/login" *ngIf="!currentUser">power_settings_new</mat-icon> 
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-
-
-
 
       <button   color="warn" *ngIf="currentUser && currentUser.isAdmin">
         Solo admin
-      </button>
-
-      <button (click)="logout()" mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn" *ngIf="currentUser">
-        <mat-icon>exit_to_app</mat-icon>
-      </button>
-
-      <button mat-mini-fab  title="login" color="success" *ngIf="currentUser && currentUser.isConectado">
-        <mat-icon>account_circle</mat-icon>
-
-      </button>
-
-      <button mat-mini-fab routerLink="/login"  title="login" *ngIf="!currentUser">
-        <mat-icon>account_circle</mat-icon>
-      </button>
-
-
+      </button>      
 
   </div>
   <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
@@ -41,4 +24,25 @@
   <button mat-menu-item routerLink="/"><mat-icon color="warn">exit_to_app</mat-icon></button>
   <button mat-menu-item routerLink="/login"><mat-icon color="primary">account_circle</mat-icon></button>
 </mat-menu>
-<div *ngIf="currentUser"><span class="mat-small">{{currentUser?.nombre}} </span> <span class="mat-small">{{myDate}} </span> </div>
+
+<!-- <mat-grid-list cols="2" class="barra-user" rowHeight="10px" gutterSize="5px">
+    <mat-grid-tile>{{currentUser?.nombre}} </mat-grid-tile>
+    <mat-grid-tile>{{myDate}}</mat-grid-tile>    
+  </mat-grid-list> -->
+  <div fxLayout="row" class="barra-user" *ngIf="currentUser">
+    
+      <div fxFlex="10%" class="header-user">        
+
+          <mat-icon (click)="logout()" class="header-button-off">power_settings_new</mat-icon> 
+
+          <!-- <button (click)="logout()" mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn" >
+            <mat-icon>power_settings_new</mat-icon>      
+        </button> -->
+      </div>
+      <div fxFlex="60%" class="header-user">{{currentUser?.nombre}}</div>      
+      
+      <div fxFlex="30%" class="header-time">{{myDate}}</div>
+    </div>
+
+
+   
