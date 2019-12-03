@@ -16,7 +16,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 export class HeaderComponent implements OnInit {
 
-  myDate : string;
+  myDate: string;
 
     title: string;
 
@@ -31,15 +31,15 @@ export class HeaderComponent implements OnInit {
         private translate: TranslateService,
         private datePipe: DatePipe,
         public router: Router) {
-          let now = new  Date();
+          const now = new  Date();
           this.myDate = this.datePipe.transform(now, 'dd-MM-yyyy hh:mm');
-            this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+          this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
     }
 
 
 
-    logout(){
+    logout() {
 
       const dialogRef = this.dialog.open(DialogComponent, {
         width: '250px',
@@ -52,7 +52,6 @@ export class HeaderComponent implements OnInit {
         }
       });
 
-      
 
 
     }
