@@ -19,21 +19,28 @@ export class AuthenticationService {
     }
 
     public get currentUserValue(): User {
+
         return this.currentUserSubject.value;
     }
 
-    login(email, password): Observable<boolean> {
+    login(userLog: User): Observable<boolean> {
 
 
-        return
-        this.http.get<User[]>('../../../assets/fake/user.json')
-        .subscribe(users => {
-            let user = users.find(item => item.email === email && item.password ===  password );
+
+        return this.http.get<User[]>('../../../assets/fake/user.json')
+        .pipe(map(users => {
+          let user = users.find(item =>
+            item.email === userLog.email && item.password ===  userLog.password );
+          if(user){
+            user.isAdmin = user.idperfil === 1;
+            user.isConectado = true;
             localStorage.setItem('currentUser', JSON.stringify(user));
             this.currentUserSubject.next(user);
-            return user!=null;
-        });
-            
+          }
+
+          return user!=null;
+        }));
+
     }
 
 

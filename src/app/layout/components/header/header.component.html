@@ -1,22 +1,36 @@
+
 <mat-toolbar color="primary">
 
   <button mat-button routerLink="/">
-    <img src="assets/images/ptePragaColor.png" width="50px" class="user-avatar" />  
-      {{title}}</button>
+    <img src="assets/images/ptePragaColor.png" width="50px" class="user-avatar" />
+      {{title}}  </button>
 
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      <button mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn">
+
+
+
+
+      <button   color="warn" *ngIf="currentUser && currentUser.isAdmin">
+        Solo admin
+      </button>
+
+      <button (click)="logout()" mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn" *ngIf="currentUser">
         <mat-icon>exit_to_app</mat-icon>
       </button>
 
-      <button mat-mini-fab routerLink="/login"  title="login">
+      <button mat-mini-fab  title="login" color="success" *ngIf="currentUser && currentUser.isConectado">
+        <mat-icon>account_circle</mat-icon>
+
+      </button>
+
+      <button mat-mini-fab routerLink="/login"  title="login" *ngIf="!currentUser">
         <mat-icon>account_circle</mat-icon>
       </button>
 
 
-      
+
   </div>
   <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
    <mat-icon>menu</mat-icon>
@@ -24,8 +38,7 @@
 
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item routerLink="/"><mat-icon color="warn">exit_to_app</mat-icon></button>  
-  <button mat-menu-item routerLink="/login"><mat-icon color="primary">account_circle</mat-icon></button>    
-
-  
+  <button mat-menu-item routerLink="/"><mat-icon color="warn">exit_to_app</mat-icon></button>
+  <button mat-menu-item routerLink="/login"><mat-icon color="primary">account_circle</mat-icon></button>
 </mat-menu>
+<div *ngIf="currentUser"><span class="mat-small">{{currentUser?.nombre}} </span> <span class="mat-small">{{myDate}} </span> </div>

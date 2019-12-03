@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 import { routerTransition } from 'src/app/router.animations';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { User } from 'src/app/shared/models/user';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     public loginForm: FormGroup;
     private dialogConfig;
 
-    loading = false; 
+    loading = false;
 
     constructor(
         private router: Router,
@@ -38,9 +39,9 @@ export class LoginComponent implements OnInit {
             'password': new FormControl('', [Validators.required,Validators.compose([Validators.minLength(6)])]),
          });
 
-         this.loginForm.reset({email: 'a@a.es', password : '23456'});
+         this.loginForm.reset({email: 'a@a.es', password : '123456'});
 
-         
+
     }
 
     public hasError = (controlName: string, errorName: string) => {
@@ -58,14 +59,28 @@ export class LoginComponent implements OnInit {
 
             this.loading = true;
 
-            this.authenticationService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
-            .subscribe(res => {
-                if(res){}
-                else{
-                    this.alertService.error("usuario/password incorrecto");
-                }
-            });
-            
+            let user: User = new User();
+            user.email = this.loginForm.controls['email'].value;
+            user.password = this.loginForm.controls['password'].value;
+
+            this.authenticationService.login(user)
+            .pipe(first())
+            .subscribe(
+                data => {
+
+                  if(data)
+                    this.router.navigate(['/']);
+                  else
+                  this.alertService.error("usuario/password incorrecto");
+                },
+                error => {
+                  this.alertService.error(error.message);
+
+                    this.loading = false;
+                });
+
+
+
 
         }
       }

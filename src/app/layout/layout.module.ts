@@ -18,7 +18,7 @@ import { MaterialModule } from '../material/material.module';
     TranslateModule,
     ToastModule,
     MaterialModule
-    
+
   ]
 })
 export class LayoutModule { }

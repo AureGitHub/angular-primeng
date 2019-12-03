@@ -12,6 +12,7 @@ import { GeneralService } from './shared/services/general.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { AlertService } from './shared/services/alert.service';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
     HttpClientModule,
     LanguageTranslationModule
   ],
-  providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService],
+  providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
