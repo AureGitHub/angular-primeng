@@ -13,6 +13,8 @@ import { AuthenticationService } from './shared/services/authentication.service'
 import { AlertService } from './shared/services/alert.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { DatePipe } from '@angular/common';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemHeroService } from './shared/services/fake-bd-ptepraga.service';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { DatePipe } from '@angular/common';
     AppRoutingModule,
     CalendarModule,
     HttpClientModule,
-    LanguageTranslationModule
+    LanguageTranslationModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemHeroService),
   ],
   providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService,DatePipe],
   bootstrap: [AppComponent]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/models/user';
+import { UserService } from 'src/app/shared/services/UserService';
 
 @Component({
   selector: 'app-lista-partidos',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPartidosComponent implements OnInit {
 
-  constructor() { }
+  users: User[]=[];
+  constructor(private userService: UserService) { }
 
+  getUsers(){
+    this.userService.getUsers().subscribe(data => {
+      this.users=data;
+    });
+  }
   ngOnInit() {
+    this.getUsers();
   }
 
 }

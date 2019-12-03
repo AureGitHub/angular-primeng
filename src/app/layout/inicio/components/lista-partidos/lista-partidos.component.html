@@ -1,4 +1,9 @@
-<div >
+<div class="lista-partidos">
     <h2 class="mat-h1">Lista de partidos</h2>
-    
+
+    <mat-nav-list>
+      <a mat-list-item  *ngFor="let user of users"> {{ user.nombre }} </a>
+   </mat-nav-list>
+
+
   </div>

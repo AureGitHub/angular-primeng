@@ -1,3 +1,4 @@
+import { MaterialModule } from 'src/app/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InicioRoutingModule } from './inicio-routing.module';
@@ -13,9 +14,7 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
     CommonModule,
     InicioRoutingModule,
     CalendarModule,
-    MenubarModule,
-    MatButtonModule,
-    MatIconModule
+    MaterialModule
   ]
 })
 export class InicioModule { }

@@ -10,6 +10,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { MaterialModule } from '../material/material.module';
 import {ButtonModule} from 'primeng/button';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { UserService } from "../shared/services/UserService";
 
 @NgModule({
   declarations: [LayoutComponent,  HeaderComponent, AlertComponent, DialogComponent],
@@ -23,5 +24,6 @@ import { DialogComponent } from './components/dialog/dialog.component';
 
   ],
   entryComponents: [DialogComponent],
+  providers: [UserService]
 })
 export class LayoutModule { }
