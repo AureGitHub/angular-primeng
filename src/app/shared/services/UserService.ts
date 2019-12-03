@@ -3,18 +3,18 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { tap, catchError } from 'rxjs/operators';
+import { AlertService } from './alert.service';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  apiurl = 'api/users';
+  apiurl = 'api/users1';
   headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
   httpOptions = {
     headers: this.headers
   };
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertService: AlertService) { }
   private handleError(error: any) {
-    console.log(error);
     return throwError(error);
   }
   getUsers(): Observable<User[]> {
