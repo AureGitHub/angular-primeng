@@ -35,6 +35,8 @@ export class HeaderComponent implements OnInit {
           this.myDate = this.datePipe.transform(now, 'dd-MM-yyyy hh:mm');
           this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
+          
+
     }
 
 

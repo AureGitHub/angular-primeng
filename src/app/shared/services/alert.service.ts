@@ -31,9 +31,10 @@ export class AlertService {
         this.subject.next({ type: 'success', text: message });
     }
 
-    error(message: string, keepAfterRouteChange = false) {
+    error(message: string, keepAfterRouteChange = false, life = 3000) {
         this.keepAfterRouteChange = keepAfterRouteChange;
-        this.subject.next({ type: 'error', text: message });
+        console.log('life ' + life);
+        this.subject.next({ type: 'error', text: message, life });
     }
 
     clear() {

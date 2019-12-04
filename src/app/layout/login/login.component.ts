@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
             'password': new FormControl('', [Validators.required,Validators.compose([Validators.minLength(6)])]),
          });
 
-         this.loginForm.reset({email: 'a@a.es', password : '123456'});
+        this.loginForm.reset({email: 'admin@a.es', password : '123456'});
 
 
     }
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
             this.loading = true;
 
-            let user: User = new User();
+            const user: User = new User();
             user.email = this.loginForm.controls['email'].value;
             user.password = this.loginForm.controls['password'].value;
 
@@ -67,16 +67,11 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-
-                  if(data)
+                  if (data) {
                     this.router.navigate(['/']);
-                  else
-                  this.alertService.error("usuario/password incorrecto");
-                },
-                error => {
-                  this.alertService.error(error.message);
-
-                    this.loading = false;
+                  } else {
+                  this.alertService.error('usuario/password incorrecto');
+                  }
                 });
 
 

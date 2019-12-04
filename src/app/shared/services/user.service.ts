@@ -3,6 +3,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { throwError, Observable } from 'rxjs';
 import { User } from '../models/user';
 import { tap, catchError } from 'rxjs/operators';
+import { AlertService } from './alert.service';
+import { Car } from 'src/app/layout/users/car';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,9 @@ export class UserService {
     headers: this.headers
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private alertService: AlertService,
+    private http: HttpClient) { }
 
   private handleError(error: any) {
     console.log(error);
@@ -25,7 +29,14 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiurl).pipe(
-      tap(data => console.log(data)),
-      catchError(this.handleError)
-    );
+      tap(data => {},
+          error => {this.alertService.error(JSON.stringify(error), false, 30000); })
+    ); }
+
+
+    getCars(): Observable<Car[]> {
+      return this.http.get<Car[]>('api/cars').pipe(
+        tap(data => {},
+            error => {this.alertService.error(JSON.stringify(error), false, 30000); })
+      ); }
 }

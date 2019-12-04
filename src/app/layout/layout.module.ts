@@ -10,7 +10,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { MaterialModule } from '../material/material.module';
 import {ButtonModule} from 'primeng/button';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { UserService } from "../shared/services/UserService";
+import { UserService } from '../shared/services/user.service';
+
 
 @NgModule({
   declarations: [LayoutComponent,  HeaderComponent, AlertComponent, DialogComponent],

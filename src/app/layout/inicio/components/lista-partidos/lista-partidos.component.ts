@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
-import { UserService } from 'src/app/shared/services/UserService';
 import { AlertService } from 'src/app/shared/services/alert.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-lista-partidos',
@@ -19,9 +19,8 @@ export class ListaPartidosComponent implements OnInit {
   getUsers(){
     this.userService.getUsers().subscribe(
       data => {
-      this.users=data;
-      },
-      error =>{this.alertService.error(JSON.stringify(error))});
+      this.users = data;
+      });
   }
   ngOnInit() {
     this.getUsers();
