@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="cars" selectionMode="single" [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="15">
+<p-table [columns]="cols" [value]="users" selectionMode="single" [(selection)]="selectedUser" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="5">
     <ng-template pTemplate="caption">
         Lista de Jugadores
     </ng-template>
@@ -24,38 +24,38 @@
     </ng-template>    
 </p-table>
 
-<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
-    <div class="ui-g ui-fluid" *ngIf="car">
+<p-dialog header="Jugador" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '70%'}">
+    <div class="ui-g ui-fluid" *ngIf="user">
         <div class="ui-g-12">
             <div class="ui-g-4">
-                <label for="vin">Vin</label>
+                <label for="vin">nombre</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="vin" [(ngModel)]="car.vin" />
+                <input pInputText id="vin" [(ngModel)]="user.nombre" />
             </div>
         </div>
         <div class="ui-g-12">
             <div class="ui-g-4">
-                <label for="year">Year</label>
+                <label for="year">email</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="year" [(ngModel)]="car.year" />
+                <input pInputText id="year" [(ngModel)]="user.email" />
             </div>
         </div>
         <div class="ui-g-12">
             <div class="ui-g-4">
-                <label for="brand">Brand</label>
+                <label for="brand">Posición</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="brand" [(ngModel)]="car.brand" />
+                <input pInputText id="brand" [(ngModel)]="user.idposicion" />
             </div>
         </div>
         <div class="ui-g-12">
             <div class="ui-g-4">
-                <label for="color">Color</label>
+                <label for="color">Perfil</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="color" [(ngModel)]="car.color" />
+                <input pInputText id="color" [(ngModel)]="user.idperfil" />
             </div>
         </div>
     </div>

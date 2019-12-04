@@ -9,7 +9,6 @@ import { routerTransition } from 'src/app/router.animations';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { User } from 'src/app/shared/models/user';
-import { Car } from './car';
 import { UserService } from 'src/app/shared/services/user.service';
 
 
@@ -25,77 +24,76 @@ export class UsersComponent implements OnInit {
 
     displayDialog: boolean;
 
-    car: Car = {};
+    user: User = {};
 
-    selectedCar: Car;
+    selectedUser: User;
 
-    newCar: boolean;
+    newUser: boolean;
 
-    cars: Car[];
+    users: User[];
 
     cols: any[];
 
     constructor(private userService: UserService) { }
 
 
-    getCars() {
-        this.userService.getCars().subscribe(
+    getUsers() {
+        this.userService.getUsers().subscribe(
           data => {
-          this.cars = data;
+          this.users = data;
           });
         }
 
     ngOnInit() {
 
-        this.getCars();
+        this.getUsers();
 
         this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
+            { field: 'nombre', header: 'nombre' },
+            { field: 'idposicion', header: 'idposicion' },
+            
         ];
     }
 
     showDialogToAdd() {
-        this.newCar = true;
-        this.car = {};
+        this.newUser = true;
+        this.user = {};
         this.displayDialog = true;
     }
 
     save() {
-        const cars = [...this.cars];
-        if (this.newCar) {
-            cars.push(this.car);
+        const users = [...this.users];
+        if (this.newUser) {
+            users.push(this.user);
         } else {
-            cars[this.cars.indexOf(this.selectedCar)] = this.car;
+            users[this.users.indexOf(this.selectedUser)] = this.user;
         }
 
-        this.cars = cars;
-        this.car = null;
+        this.users = users;
+        this.user = null;
         this.displayDialog = false;
     }
 
     delete() {
-        const index = this.cars.indexOf(this.selectedCar);
-        this.cars = this.cars.filter((val, i) => i != index);
-        this.car = null;
+        const index = this.users.indexOf(this.selectedUser);
+        this.users = this.users.filter((val, i) => i !== index);
+        this.user = null;
         this.displayDialog = false;
     }
 
     onRowSelect(event) {
-        this.newCar = false;
-        this.car = this.cloneCar(event.data);
+        this.newUser = false;
+        this.user = this.cloneCar(event.data);
         this.displayDialog = true;
     }
 
-    cloneCar(c: Car): Car {
-        const car = {};
+    cloneCar(u: User): User {
+        const user = {};
         // tslint:disable-next-line:forin
-        for (let prop in c) {
-            car[prop] = c[prop];
+        for (let prop in u) {
+            user[prop] = u[prop];
         }
-        return car;
+        return user;
     }
 }
 

@@ -1,10 +1,10 @@
-export class User {
-    idperfil: number;
-    email: string;
-    password: string;
-    nombre: string;
-    idposicion: number;
-    token: string;
-    isAdmin: boolean;
-    isConectado: boolean;
+export interface User {
+    idperfil?;
+    email?;
+    password?;
+    nombre?;
+    idposicion?;
+    token?;
+    isAdmin?;
+    isConectado?;
 }

@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
             this.loading = true;
 
-            const user: User = new User();
+            let user: User = {};
             user.email = this.loginForm.controls['email'].value;
             user.password = this.loginForm.controls['password'].value;
 
