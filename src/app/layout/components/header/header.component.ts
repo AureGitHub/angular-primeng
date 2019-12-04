@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
           this.myDate = this.datePipe.transform(now, 'dd-MM-yyyy hh:mm');
           this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
 
-          
+
 
     }
 
@@ -51,6 +51,7 @@ export class HeaderComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.authenticationService.logout();
+          this.router.navigate(['/']);
         }
       });
 

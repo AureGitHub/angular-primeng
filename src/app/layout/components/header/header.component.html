@@ -8,15 +8,15 @@
   <!-- This fills the remaining space of the current row -->
   <span class="fill-remaining-space"></span>
 
-  
-  <mat-icon title="Conectar"  class="header-button-login" routerLink="/login" *ngIf="!currentUser">power_settings_new</mat-icon> 
-  
+
+  <mat-icon title="Conectar"  class="header-button-login" routerLink="/login" *ngIf="!currentUser">power_settings_new</mat-icon>
+
 
   <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      <button title="Gestion Usuarios" mat-menu-item routerLink="/users"><mat-icon color="warn" *ngIf="currentUser && currentUser.isAdmin">group</mat-icon></button>        
+      <button title="Gestion Usuarios" mat-menu-item routerLink="/users"><mat-icon color="warn" *ngIf="currentUser && currentUser.isAdmin">group</mat-icon></button>
   </div>
 
-  <div fxLayout="row" fxShow="false" fxShow.gt-sm>      
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
   </div>
   <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
    <mat-icon>menu</mat-icon>
@@ -25,27 +25,27 @@
 </mat-toolbar>
 <mat-menu x-position="before" #menu="matMenu">
   <button mat-menu-item routerLink="/users"><mat-icon color="warn" *ngIf="currentUser && currentUser.isAdmin">group</mat-icon></button>
-  
+
 </mat-menu>
 
 <!-- <mat-grid-list cols="2" class="barra-user" rowHeight="10px" gutterSize="5px">
     <mat-grid-tile>{{currentUser?.nombre}} </mat-grid-tile>
-    <mat-grid-tile>{{myDate}}</mat-grid-tile>    
+    <mat-grid-tile>{{myDate}}</mat-grid-tile>
   </mat-grid-list> -->
   <div fxLayout="row" class="barra-user" *ngIf="currentUser">
-    
-      <div fxFlex="10%" class="header-user">        
 
-          <mat-icon (click)="logout()" class="header-button-off">power_settings_new</mat-icon> 
+      <div fxFlex="10%" class="header-user">
+
+          <mat-icon (click)="logout()" class="header-button-off">power_settings_new</mat-icon>
 
           <!-- <button (click)="logout()" mat-mini-fab aria-label="Example icon-button with a heart icon" color="warn" >
-            <mat-icon>power_settings_new</mat-icon>      
+            <mat-icon>power_settings_new</mat-icon>
         </button> -->
       </div>
-      <div fxFlex="60%" class="header-user">{{currentUser?.nombre}}</div>      
-      
+      <div fxFlex="60%" class="header-user">{{currentUser?.nombre}}</div>
+
       <div fxFlex="30%" class="header-time">{{myDate}}</div>
     </div>
 
 
-   
+

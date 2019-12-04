@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="users" selectionMode="single" [(selection)]="selectedUser" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="5">
+<p-table [columns]="cols" [value]="users" [responsive]="true" selectionMode="single" [(selection)]="selectedUser" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="5">
     <ng-template pTemplate="caption">
         Lista de Jugadores
     </ng-template>
@@ -8,6 +8,7 @@
                 {{col.header}}
                 <p-sortIcon [field]="col.field"></p-sortIcon>
             </th>
+            <th>Borrar</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -15,23 +16,30 @@
             <td *ngFor="let col of columns">
                 {{rowData[col.field]}}
             </td>
+            <td >
+                <button (click)="deleteConfirm()" mat-mini-fab color="warn" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+            </td>
         </tr>
     </ng-template>
     <ng-template pTemplate="summary" let-rowData>
         <div style="text-align:left">
-            <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+            <button (click)="showDialogToAdd()" mat-fab color="primary" >
+                <mat-icon>group_add</mat-icon>
+              </button>
         </div>
-    </ng-template>    
+    </ng-template>
 </p-table>
 
-<p-dialog header="Jugador" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '70%'}">
+<p-dialog header="Jugador" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false"  [style]="{width: '70%'}">
     <div class="ui-g ui-fluid" *ngIf="user">
         <div class="ui-g-12">
             <div class="ui-g-4">
                 <label for="vin">nombre</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="vin" [(ngModel)]="user.nombre" />
+                <input pInputText id="nombre" [(ngModel)]="user.nombre" />
             </div>
         </div>
         <div class="ui-g-12">
@@ -39,30 +47,54 @@
                 <label for="year">email</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="year" [(ngModel)]="user.email" />
+                <input pInputText id="email" [(ngModel)]="user.email" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="year">password</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="password" [(ngModel)]="user.password" />
+          </div>
+      </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="brand">posición</label>
+            </div>
+            <div class="ui-g-8">
+                <p-dropdown [options]="lstPosicion" [(ngModel)]="Selpos" (onChange)="user.idposicion = Selpos.id" optionLabel="descripcion"></p-dropdown>
+
             </div>
         </div>
         <div class="ui-g-12">
             <div class="ui-g-4">
-                <label for="brand">Posición</label>
+                <label for="color">perfil</label>
             </div>
             <div class="ui-g-8">
-                <input pInputText id="brand" [(ngModel)]="user.idposicion" />
+                <p-dropdown [options]="lstPerfil" [(ngModel)]="Selper" (onChange)="user.idperfil = Selper.id" optionLabel="descripcion"></p-dropdown>
+
             </div>
         </div>
+
         <div class="ui-g-12">
-            <div class="ui-g-4">
-                <label for="color">Perfil</label>
+            <div class="ui-g-3">
+
             </div>
-            <div class="ui-g-8">
-                <input pInputText id="color" [(ngModel)]="user.idperfil" />
+            <div class="ui-g-3">
+                <button (click)="save()" mat-fab color="primary" >
+                    <mat-icon>save</mat-icon>
+                  </button>
+            </div>
+            <div class="ui-g-3">
+                <button (click)="deleteConfirm()" mat-fab color="warn" >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+            </div>
+            <div class="ui-g-3">
+
             </div>
         </div>
     </div>
-    <p-footer>
-        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
-            <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
-        </div>
-    </p-footer>
+
 </p-dialog>

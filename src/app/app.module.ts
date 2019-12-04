@@ -15,6 +15,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { DatePipe } from '@angular/common';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemHeroService } from './shared/services/fake-bd-ptepraga.service';
+import { RoleGuard } from './shared/guard/roles.guard';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { InMemHeroService } from './shared/services/fake-bd-ptepraga.service';
     LanguageTranslationModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemHeroService),
   ],
-  providers: [AuthGuard, GeneralService, AuthenticationService,AlertService,MessageService,DatePipe],
+  providers: [AuthGuard,RoleGuard, GeneralService, AuthenticationService,AlertService,MessageService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
