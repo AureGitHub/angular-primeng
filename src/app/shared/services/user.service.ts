@@ -25,7 +25,7 @@ export class UserService {
     private handleError<T> (operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
 
-        let strError ='(' + operation + ') ' + error.status + ', ' + error.statusText +  ', ' + error.url;
+        const strError = '(' + operation + ') ' + error.status + ', ' + error.statusText +  ', ' + error.url;
 
 
         // TODO: send the error to remote logging infrastructure

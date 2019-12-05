@@ -1,9 +1,46 @@
-<div class="lista-partidos">
-    <h2 class="mat-h1">Lista de partidos</h2>
-
-    <mat-nav-list>
-      <a mat-list-item  *ngFor="let user of users"> {{ user.nombre }} </a>
-   </mat-nav-list>
-
-
-  </div>
+<p-dataView #dv [value]="users" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+[sortField]="sortField" [sortOrder]="sortOrder">
+<p-header>
+    <div class="ui-helper-clearfix">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-4">
+                <p-dropdown [options]="sortOptions"  placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+            </div>
+            <div class="ui-g-6 ui-md-4 filter-container">
+                <div style="position:relative">
+                    <input type="search" pInputText placeholder="Search by nombre" (input)="dv.filter($event.target.value)">
+                </div>
+            </div>
+            <div class="ui-g-6 ui-md-4" style="text-align:right">
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+            </div>
+        </div>
+    </div>
+</p-header>
+<ng-template let-user pTemplate="listItem">
+    <div class="ui-g-12">
+        <div class="car-details">
+            <div>
+                <img src="../../../../../assets/images/canstockphoto61341382.jpg" width="40">
+                <div class="ui-g">
+                    <div class="ui-g-12">nombre: <b>{{user.nombre}}</b></div>
+                    <div class="ui-g-12">email: <b>{{user.email}}</b></div>
+                    <div class="ui-g-12">Posicion: <b>{{user.idposicion}}</b></div>
+                    <div class="ui-g-12">idperfil: <b>{{user.idperfil}}</b></div>
+                </div>
+            </div>
+            <button pButton type="button" icon="pi pi-search"></button>
+        </div>
+    </div>
+</ng-template>
+<ng-template let-user pTemplate="gridItem">
+    <div style="padding:.5em" class="ui-g-12 ui-md-3">
+        <p-panel [header]="user.nombre" [style]="{'text-align':'center'}">
+            <img src="../../../../../assets/images/canstockphoto61341382.jpg" width="40">
+            <div class="car-detail">{{user.email}} </div>
+            <hr class="ui-widget-content" style="border-top:0">
+            <button pButton type="button" icon="pi pi-search"  style="margin-top:0"></button>
+        </p-panel>
+    </div>
+</ng-template>
+</p-dataView>

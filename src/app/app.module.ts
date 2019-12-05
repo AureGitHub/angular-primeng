@@ -31,7 +31,14 @@ import { RoleGuard } from './shared/guard/roles.guard';
     LanguageTranslationModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemHeroService),
   ],
-  providers: [AuthGuard,RoleGuard, GeneralService, AuthenticationService,AlertService,MessageService,DatePipe],
+  providers: [
+    AuthGuard,
+    RoleGuard,
+    GeneralService,
+    AuthenticationService,
+    AlertService,
+    MessageService,
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

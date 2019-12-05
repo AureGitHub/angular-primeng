@@ -3,6 +3,13 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class InMemHeroService implements InMemoryDbService {
   createDb() {
 
+    const Partidos  = [
+      {id : 1, dia: '2019-12-05', hora: '10:30', duracion: 2, pistas : 2, jugadorestotal: 8, jugadoresapuntados : 3},
+      {id : 2, dia: '2019-12-05', hora: '18:30',  duracion: 1.5, pistas : 1, jugadorestotal: 4, jugadoresapuntados : 4},
+      {id : 3, dia: '2019-12-06', hora: '10:00',  duracion: 2, pistas : 3, jugadorestotal: 12, jugadoresapuntados : 7},
+      {id : 4, dia: '2019-12-07', hora: '17:30',  duracion: 1.5, pistas : 1, jugadorestotal: 4, jugadoresapuntados : 1},
+    ];
+
     const perfil  = [
       {id : 1, descripcion: 'admin'},
       {id : 2, descripcion: 'jugador'}
@@ -21,6 +28,6 @@ export class InMemHeroService implements InMemoryDbService {
 
 
 
-    return {users, posicion,perfil};
+    return {users, posicion, perfil, Partidos};
   }
 }

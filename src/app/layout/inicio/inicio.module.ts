@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
 import { CalendarModule } from 'primeng/calendar';
-import { MenubarModule } from 'primeng/menubar';
 import { ListaPartidosComponent } from './components/lista-partidos/lista-partidos.component';
-import { MatButtonModule, MatIconModule } from '@angular/material';
+import {DataViewModule} from 'primeng/dataview';
+import { DropdownModule } from 'primeng/dropdown';
+import {PanelModule} from 'primeng/panel';
 
 @NgModule({
   declarations: [InicioComponent, ListaPartidosComponent],
@@ -14,7 +15,10 @@ import { MatButtonModule, MatIconModule } from '@angular/material';
     CommonModule,
     InicioRoutingModule,
     CalendarModule,
-    MaterialModule
+    MaterialModule,
+    DataViewModule,
+    DropdownModule,
+    PanelModule
   ]
 })
 export class InicioModule { }

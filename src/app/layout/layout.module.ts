@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import {ButtonModule} from 'primeng/button';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { UserService } from '../shared/services/user.service';
+import { PartidoService } from '../shared/services/partido.service';
 
 
 @NgModule({
@@ -25,6 +26,6 @@ import { UserService } from '../shared/services/user.service';
 
   ],
   entryComponents: [DialogComponent],
-  providers: [UserService]
+  providers: [UserService, PartidoService]
 })
 export class LayoutModule { }

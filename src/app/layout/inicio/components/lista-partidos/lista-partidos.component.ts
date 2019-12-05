@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/models/user';
 import { AlertService } from 'src/app/shared/services/alert.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { SelectItem } from 'primeng/api';
+import { Partido } from 'src/app/shared/models/partido';
+import { PartidoService } from 'src/app/shared/services/partido.service';
 
 @Component({
   selector: 'app-lista-partidos',
@@ -10,20 +11,57 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class ListaPartidosComponent implements OnInit {
 
-  users: User[]=[];
+  partidos: Partido[] = [];
+
+  selectedPartido: Partido;
+
+    displayDialog: boolean;
+
+    sortOptions: SelectItem[];
+
+    sortKey: string;
+
+    sortField: string;
+
+    sortOrder: number;
+
   constructor(
-    private userService: UserService,
+    private partidoService: PartidoService,
     private alertService: AlertService
     ) { }
 
-  getUsers(){
-    this.userService.getUsers().subscribe(
+  getPartidos(){
+    this.partidoService.getPartidos().subscribe(
       data => {
-      this.users = data;
+      this.partidos = data;
       });
   }
   ngOnInit() {
-    this.getUsers();
+    this.getPartidos();
+
+    this.sortOptions = [
+      {label: 'Nombre', value: 'nombre'},
+      {label: 'email', value: 'email'}
+  ];
   }
+
+  onSortChange(event) {
+    const value = event.value;
+
+    if (value.indexOf('!') === 0) {
+        this.sortOrder = -1;
+        this.sortField = value.substring(1, value.length);
+    } else {
+        this.sortOrder = 1;
+        this.sortField = value;
+    }
+}
+
+onDialogHide() {
+    this.selectedPartido = null;
+}
+
+
+
 
 }
