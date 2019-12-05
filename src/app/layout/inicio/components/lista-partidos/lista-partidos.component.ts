@@ -3,6 +3,8 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 import { SelectItem } from 'primeng/api';
 import { Partido } from 'src/app/shared/models/partido';
 import { PartidoService } from 'src/app/shared/services/partido.service';
+import { User } from 'src/app/shared/models/user';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-lista-partidos',
@@ -11,9 +13,9 @@ import { PartidoService } from 'src/app/shared/services/partido.service';
 })
 export class ListaPartidosComponent implements OnInit {
 
-  partidos: Partido[] = [];
+  users: User[] = [];
 
-  selectedPartido: Partido;
+  selectedUser: User;
 
     displayDialog: boolean;
 
@@ -26,18 +28,18 @@ export class ListaPartidosComponent implements OnInit {
     sortOrder: number;
 
   constructor(
-    private partidoService: PartidoService,
+    private userService: UserService,
     private alertService: AlertService
     ) { }
 
-  getPartidos(){
-    this.partidoService.getPartidos().subscribe(
+  getUsers(){
+    this.userService.getUsers().subscribe(
       data => {
-      this.partidos = data;
+      this.users = data;
       });
   }
   ngOnInit() {
-    this.getPartidos();
+    this.getUsers();
 
     this.sortOptions = [
       {label: 'Nombre', value: 'nombre'},
@@ -58,7 +60,7 @@ export class ListaPartidosComponent implements OnInit {
 }
 
 onDialogHide() {
-    this.selectedPartido = null;
+    this.selectedUser = null;
 }
 
 
