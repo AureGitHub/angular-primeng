@@ -34,7 +34,7 @@ export class InterceptorService implements HttpInterceptor {
 
         const strError = '(' + operation + ') ' + error.status + ', ' + error.statusText +  ', ' + error.url;
 
-
+        this.loadingService.mostar(false);
         // TODO: send the error to remote logging infrastructure
         this.alertService.error(strError, false, 30000);
 
@@ -51,7 +51,7 @@ export class InterceptorService implements HttpInterceptor {
 
     // const token: string = localStorage.getItem('token');
 
-    
+
 
     this.loadingService.mostar(true);
 

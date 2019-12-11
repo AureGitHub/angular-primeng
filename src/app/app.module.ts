@@ -18,6 +18,7 @@ import { InMemHeroService } from './shared/services/fake-bd-ptepraga.service';
 import { RoleGuard } from './shared/guard/roles.guard';
 import { LoadingService } from './shared/services/loading.service';
 import { InterceptorService } from './shared/services/interceptor.service';
+import { HttpGralService } from './shared/services/http.gral.service';
 
 
 
@@ -43,6 +44,7 @@ import { InterceptorService } from './shared/services/interceptor.service';
     AuthGuard,
     RoleGuard,
     GeneralService,
+    HttpGralService,
     AuthenticationService,
     AlertService,
     LoadingService,
