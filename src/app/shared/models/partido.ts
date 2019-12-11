@@ -6,4 +6,7 @@ export interface Partido {
     pistas?;
     jugadorestotal?;
     jugadoresapuntados?;
+    idcreador?;
+    esCreador?;
+    idpartidoxjugador?;
 }

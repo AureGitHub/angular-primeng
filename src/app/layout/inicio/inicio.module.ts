@@ -8,6 +8,8 @@ import { ListaPartidosComponent } from './components/lista-partidos/lista-partid
 import {DataViewModule} from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
 import {PanelModule} from 'primeng/panel';
+import {ToolbarModule} from 'primeng/toolbar';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [InicioComponent, ListaPartidosComponent],
@@ -18,7 +20,9 @@ import {PanelModule} from 'primeng/panel';
     MaterialModule,
     DataViewModule,
     DropdownModule,
-    PanelModule
+    PanelModule,
+    ToolbarModule,
+    NgxLoadingModule.forRoot({})
   ]
 })
 export class InicioModule { }

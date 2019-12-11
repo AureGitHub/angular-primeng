@@ -1,3 +1,22 @@
+
+
+
+.img_pp{
+  width:30%;
+  max-width:40px;
+}
+
+.div_button_normal{
+  text-align: center;
+  background-color: #FAFAFA;
+}
+
+.button_normal{
+  
+  margin: 5px;
+  
+}
+
 .lista-partidos{
   color:black;  
 }
@@ -5,11 +24,16 @@
 .filter-container {
   text-align: center;
 }
+
+.item_partido_normal{
+  border-bottom: 1px solid #d9dad9;
+}
+
 .car-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: 1em;
   border-bottom: 1px solid #d9dad9;
 }
 .car-details > div {

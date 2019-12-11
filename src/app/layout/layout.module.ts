@@ -12,17 +12,20 @@ import {ButtonModule} from 'primeng/button';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { UserService } from '../shared/services/user.service';
 import { PartidoService } from '../shared/services/partido.service';
+import { LoadingComponent } from './components/loading/loading.component';
+import { NgxLoadingModule } from 'ngx-loading';
 
 
 @NgModule({
-  declarations: [LayoutComponent,  HeaderComponent, AlertComponent, DialogComponent],
+  declarations: [LayoutComponent,  HeaderComponent, AlertComponent, DialogComponent, LoadingComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     TranslateModule,
     ToastModule,
     MaterialModule,
-    ButtonModule
+    ButtonModule,
+    NgxLoadingModule.forRoot({})
 
   ],
   entryComponents: [DialogComponent],

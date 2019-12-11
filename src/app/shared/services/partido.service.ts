@@ -10,41 +10,53 @@ import { AlertService } from './alert.service';
   })
 
   export class PartidoService {
-    apiurl = 'api/users';
 
-    headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
-    httpOptions = {
-      headers: this.headers
-    };
+
+
+    apiurl = 'api/partidos';
+
+    apiurlpartidoxjugador = 'api/partidoxjugador';
+
+
 
     constructor(
         private alertService: AlertService,
         private http: HttpClient) { }
 
 
-    private handleError<T> (operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-
-            const strError = '(' + operation + ') ' + error.status + ', ' + error.statusText +  ', ' + error.url;
-
-
-            // TODO: send the error to remote logging infrastructure
-            this.alertService.error(strError, false, 30000);
-
-            // TODO: better job of transforming error for user consumption
-
-            // Let the app keep running by returning an empty result.
-            return of(result as T);
-        };
-        }
+    
 
 
         getPartidos(): Observable<any[]> {
 
             return this.http.get<any[]>(this.apiurl).pipe(
-              tap(_ =>{} ),
-              catchError(this.handleError<any[]>(`getPartidos`))
+              tap(_ =>{} )
             );
           }
+
+
+          getPartidosXJugadores() {
+            return this.http.get<any[]>(this.apiurlpartidoxjugador).pipe(
+              tap(_ =>{} )
+            );
+          }
+
+          addPartidosXJugadores(obj: any) {
+            return this.http.post<User>(this.apiurlpartidoxjugador, obj).pipe(
+              tap(_ => {})
+            );
+          }
+
+
+          deletePartidosXJugadores( idpartidoxjugador: any) {
+
+            const url = `${this.apiurlpartidoxjugador}/${idpartidoxjugador}`;
+
+            return this.http.delete<User>(url).pipe(
+              tap()
+            );
+          }
+
+
 
   }

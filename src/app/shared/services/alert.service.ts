@@ -33,7 +33,6 @@ export class AlertService {
 
     error(message: string, keepAfterRouteChange = false, life = 3000) {
         this.keepAfterRouteChange = keepAfterRouteChange;
-        console.log('life ' + life);
         this.subject.next({ type: 'error', text: message, life });
     }
 

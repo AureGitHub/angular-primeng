@@ -1,4 +1,4 @@
-<p-dataView #dv [value]="users" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+<p-dataView #dv [value]="partidos" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
 [sortField]="sortField" [sortOrder]="sortOrder">
 <p-header>
     <div class="ui-helper-clearfix">
@@ -17,27 +17,41 @@
         </div>
     </div>
 </p-header>
-<ng-template let-user pTemplate="listItem">
-    <div class="ui-g-12">
-        <div class="car-details">
-            <div>
-                <img src="../../../../../assets/images/canstockphoto61341382.jpg" width="40">
-                <div class="ui-g">
-                    <div class="ui-g-12">nombre: <b>{{user.nombre}}</b></div>
-                    <div class="ui-g-12">email: <b>{{user.email}}</b></div>
-                    <div class="ui-g-12">Posicion: <b>{{user.idposicion}}</b></div>
-                    <div class="ui-g-12">idperfil: <b>{{user.idperfil}}</b></div>
-                </div>
-            </div>
-            <button pButton type="button" icon="pi pi-search"></button>
-        </div>
+<ng-template let-partido pTemplate="listItem">
+    <div class="ui-g" class="item_partido_normal">
+
+            <div class="ui-g-4"><img class="img_pp"  src="../../../../../assets/images/canstockphoto61341382.jpg"></div>
+
+            <div class="ui-g-8 ui-g-nopad">
+                    <div class="ui-g">
+                        <div class="ui-g-6"><b>{{partido.dia}}</b></div>
+                        <div class="ui-g-6">P: <b>{{partido.pistas}}</b></div>                        
+                    </div>
+
+                    <div class="ui-g">
+                            <div class="ui-g-6">{{partido.hora}} ({{partido.duracion}})</div>
+                            <div class="ui-g-6">Jugadores: <b>{{partido.jugadoresapuntados}}/{{partido.jugadorestotal}}</b></div>                        
+                    </div>
+                
+            </div>  
+            <div class="ui-g-12 div_button_normal">
+                  
+                <button pButton title="Apúntate" (click)="Apuntate(partido)" type="button" icon="pi pi-user-plus"  class="ui-button-success button_normal" *ngIf="currentUser && !partido.idpartidoxjugador"></button>
+                <button pButton title="Bórrate" (click)="Borrate(partido)" type="button" icon="pi pi-user-minus"  class="ui-button-danger button_normal" *ngIf="currentUser && partido.idpartidoxjugador"></button>
+                <button pButton title="Gestión" type="button" icon="pi pi-pencil"  class="ui-button-primary button_normal" *ngIf="currentUser && !partido.esCreador"></button>
+                          
+
+                
+            </div> 
+        
+      
     </div>
 </ng-template>
-<ng-template let-user pTemplate="gridItem">
+<ng-template let-partido pTemplate="gridItem">
     <div style="padding:.5em" class="ui-g-12 ui-md-3">
-        <p-panel [header]="user.nombre" [style]="{'text-align':'center'}">
+        <p-panel [header]="partido.dia" [style]="{'text-align':'center'}">
             <img src="../../../../../assets/images/canstockphoto61341382.jpg" width="40">
-            <div class="car-detail">{{user.email}} </div>
+            <div class="car-detail">Pistas: {{partido.pistas}} - T. Jugadores: {{partido.jugadorestotal}} - Apuntados:{{partido.jugadoresapuntados}} </div>
             <hr class="ui-widget-content" style="border-top:0">
             <button pButton type="button" icon="pi pi-search"  style="margin-top:0"></button>
         </p-panel>

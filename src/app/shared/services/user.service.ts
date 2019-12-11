@@ -13,68 +13,43 @@ export class UserService {
 
   apiurl = 'api/users';
 
-  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json');
-  httpOptions = {
-    headers: this.headers
-  };
 
   constructor(
     private alertService: AlertService,
     private http: HttpClient) { }
 
-    private handleError<T> (operation = 'operation', result?: T) {
-      return (error: any): Observable<T> => {
-
-        const strError = '(' + operation + ') ' + error.status + ', ' + error.statusText +  ', ' + error.url;
-
-
-        // TODO: send the error to remote logging infrastructure
-        this.alertService.error(strError, false, 30000);
-
-        // TODO: better job of transforming error for user consumption
-
-        // Let the app keep running by returning an empty result.
-        return of(result as T);
-      };
-    }
 
     getPosicion(): Observable<any[]> {
       return this.http.get<any[]>('api/posicion').pipe(
-        tap(data => {},
-            error => {this.alertService.error(JSON.stringify(error), false, 30000); })
+        tap(data => {})
       ); }
 
       getPerfil(): Observable<any[]> {
         return this.http.get<any[]>('api/perfil').pipe(
-          tap(data => {},
-              error => {this.alertService.error(JSON.stringify(error), false, 30000); })
+          tap(data => {})
         ); }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiurl).pipe(
-      tap(data => {},
-          error => {this.alertService.error(JSON.stringify(error), false, 30000); })
+      tap(data => {})
     ); }
 
     getUser(id: number): Observable<User> {
 
       return this.http.get<User>(`${this.apiurl}/${id}`).pipe(
-        tap(_ =>{} ),
-        catchError(this.handleError<User>(`getUser id=${id}`))
+        tap(_ =>{} )
       );
     }
 
     updateUser (user: User): Observable<any> {
-      return this.http.put(this.apiurl, user, this.httpOptions).pipe(
-        tap(),
-        catchError(this.handleError<any>('updateUser'))
+      return this.http.put(this.apiurl, user).pipe(
+        tap()
       );
     }
 
     addUser (user: User): Observable<User> {
-      return this.http.post<User>(this.apiurl, user, this.httpOptions).pipe(
-        tap((newUser: User) => {}),
-        catchError(this.handleError<User>('addUser'))
+      return this.http.post<User>(this.apiurl, user).pipe(
+        tap((newUser: User) => {})
       );
     }
 
@@ -82,9 +57,8 @@ export class UserService {
       const id = typeof user === 'number' ? user : user.id;
       const url = `${this.apiurl}/${id}`;
 
-      return this.http.delete<User>(url, this.httpOptions).pipe(
-        tap(),
-        catchError(this.handleError<User>('deleteUser'))
+      return this.http.delete<User>(url).pipe(
+        tap()
       );
     }
 
