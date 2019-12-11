@@ -1,9 +1,6 @@
 ﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-
-import { LoadingService } from 'src/app/shared/services/loading.service';
-
-
+import { LoadingService } from 'src/app/shared/services/components/loading.service';
 
 @Component({ selector: 'loading', templateUrl: 'loading.component.html',
 styleUrls: [] })

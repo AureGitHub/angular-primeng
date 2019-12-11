@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from 'src/app/shared/services/alert.service';
 import { SelectItem } from 'primeng/api';
 import { Partido } from 'src/app/shared/models/partido';
 import { User } from 'src/app/shared/models/user';
@@ -7,7 +6,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from 'src/app/layout/components/dialog/dialog.component';
-import { HttpGralService, apisUrl } from 'src/app/shared/services/http.gral.service';
+import { HttpGralService, apisUrl } from 'src/app/shared/services/http/http.gral.service';
 
 
 
@@ -38,7 +37,6 @@ export class ListaPartidosComponent implements OnInit {
 
   constructor(
     private httpGralService: HttpGralService,
-    private alertService: AlertService,
     private datePipe: DatePipe,
     public dialog: MatDialog,
     private authenticationService: AuthenticationService

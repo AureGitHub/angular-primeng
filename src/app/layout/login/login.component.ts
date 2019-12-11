@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import {Validators, FormControl,FormGroup,FormBuilder} from '@angular/forms';
-
-
-import {SelectItem} from 'primeng/api';
+import { Router } from '@angular/router';
+import {Validators, FormControl,FormGroup} from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { routerTransition } from 'src/app/router.animations';
-import { AlertService } from 'src/app/shared/services/alert.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { User } from 'src/app/shared/models/user';
+import { AlertService } from 'src/app/shared/services/components/alert.service';
 
 
 @Component({

@@ -25,26 +25,26 @@
             <div class="ui-g-8 ui-g-nopad">
                     <div class="ui-g">
                         <div class="ui-g-6"><b>{{partido.dia}}</b></div>
-                        <div class="ui-g-6">P: <b>{{partido.pistas}}</b></div>                        
+                        <div class="ui-g-6">P: <b>{{partido.pistas}}</b></div>
                     </div>
 
                     <div class="ui-g">
                             <div class="ui-g-6">{{partido.hora}} ({{partido.duracion}})</div>
-                            <div class="ui-g-6">Jugadores: <b>{{partido.jugadoresapuntados}}/{{partido.jugadorestotal}}</b></div>                        
+                            <div class="ui-g-6">Jugadores: <b>{{partido.jugadoresapuntados}}/{{partido.jugadorestotal}}</b></div>
                     </div>
-                
-            </div>  
+
+            </div>
             <div class="ui-g-12 div_button_normal">
-                  
+
                 <button pButton title="Apúntate" (click)="Apuntate(partido)" type="button" icon="pi pi-user-plus"  class="ui-button-success button_normal" *ngIf="currentUser && !partido.idpartidoxjugador"></button>
                 <button pButton title="Bórrate" (click)="Borrate(partido)" type="button" icon="pi pi-user-minus"  class="ui-button-danger button_normal" *ngIf="currentUser && partido.idpartidoxjugador"></button>
-                <button pButton title="Gestión" type="button" icon="pi pi-pencil"  class="ui-button-primary button_normal" *ngIf="currentUser && !partido.esCreador"></button>
-                          
+                <button pButton title="Gestión" [routerLink]="['/detalle-partido', partido.id]"  type="button" icon="pi pi-pencil"  class="ui-button-primary button_normal" *ngIf="currentUser && !partido.esCreador"></button>
 
-                
-            </div> 
-        
-      
+
+
+            </div>
+
+
     </div>
 </ng-template>
 <ng-template let-partido pTemplate="gridItem">

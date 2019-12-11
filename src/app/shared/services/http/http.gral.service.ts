@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient } from '@angular/common/http';
-import { AlertService } from './alert.service';
 import { tap } from 'rxjs/operators';
+import { AlertService } from '../components/alert.service';
 
-// export interface ApiRrl {
-//   user: string,
-//   partido: string,
-// }
+
+
 
 export const apisUrl = {
   user: 'api/users',

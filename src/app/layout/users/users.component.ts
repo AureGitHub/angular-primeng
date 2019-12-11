@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models/user';
 
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../components/dialog/dialog.component';
-import { HttpGralService, apisUrl } from 'src/app/shared/services/http.gral.service';
+import { HttpGralService, apisUrl } from 'src/app/shared/services/http/http.gral.service';
 
 
 @Component({

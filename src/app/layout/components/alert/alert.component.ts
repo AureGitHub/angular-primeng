@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AlertService } from '../../../shared/services/alert.service';
 import { MessageService } from 'primeng/components/common/messageservice';
+import { AlertService } from 'src/app/shared/services/components/alert.service';
 
 
 

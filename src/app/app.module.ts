@@ -10,15 +10,16 @@ import { LanguageTranslationModule } from './shared/modules/language-translation
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GeneralService } from './shared/services/general.service';
 import { AuthenticationService } from './shared/services/authentication.service';
-import { AlertService } from './shared/services/alert.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { DatePipe } from '@angular/common';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemHeroService } from './shared/services/fake-bd-ptepraga.service';
 import { RoleGuard } from './shared/guard/roles.guard';
-import { LoadingService } from './shared/services/loading.service';
-import { InterceptorService } from './shared/services/interceptor.service';
-import { HttpGralService } from './shared/services/http.gral.service';
+import { HttpGralService } from './shared/services/http/http.gral.service';
+import { InterceptorService } from './shared/services/http/interceptor.service';
+import { AlertService } from './shared/services/components/alert.service';
+import { LoadingService } from './shared/services/components/loading.service';
+
 
 
 

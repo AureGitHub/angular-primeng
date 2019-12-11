@@ -3,9 +3,8 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { LoadingService } from './loading.service';
-import { AlertService } from './alert.service';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { AlertService } from '../components/alert.service';
+import { LoadingService } from '../components/loading.service';
 
 @Injectable({
   providedIn: 'root'

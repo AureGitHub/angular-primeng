@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { MenuItem } from 'primeng/components/common/menuitem';
-import { AlertService } from 'src/app/shared/services/alert.service';
+
 
 @Component({
   selector: 'app-inicio',
@@ -11,19 +11,10 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 })
 export class InicioComponent implements OnInit {
 
-
-
-  constructor(private alertService: AlertService) { }
+  constructor() { }
 
   ngOnInit() {
 
-  }
-
-  showAlerta(type){
-    if(type==='e')
-      this.alertService.error("error");
-    else if(type==='s')
-    this.alertService.success("Todo OK");
   }
 
 }
