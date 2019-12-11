@@ -10,7 +10,6 @@ import { AlertComponent } from './components/alert/alert.component';
 import { MaterialModule } from '../material/material.module';
 import {ButtonModule} from 'primeng/button';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { UserService } from '../shared/services/user.service';
 import { PartidoService } from '../shared/services/partido.service';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NgxLoadingModule } from 'ngx-loading';
@@ -29,6 +28,6 @@ import { NgxLoadingModule } from 'ngx-loading';
 
   ],
   entryComponents: [DialogComponent],
-  providers: [UserService, PartidoService]
+  providers: [PartidoService]
 })
 export class LayoutModule { }

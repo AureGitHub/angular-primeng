@@ -3,13 +3,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 
-import { SelectItem } from 'primeng/api';
-import { first } from 'rxjs/operators';
+
 import { routerTransition } from 'src/app/router.animations';
-import { AlertService } from 'src/app/shared/services/alert.service';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+
 import { User } from 'src/app/shared/models/user';
-import { UserService } from 'src/app/shared/services/user.service';
+
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from '../components/dialog/dialog.component';
 import { HttpGralService, apisUrl } from 'src/app/shared/services/http.gral.service';

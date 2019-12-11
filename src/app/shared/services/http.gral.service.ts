@@ -13,7 +13,8 @@ export const apisUrl = {
   user: 'api/users',
   partido: 'api/partidos',
   posicion: 'api/posicion',
-  perfil: 'api/perfil'
+  perfil: 'api/perfil',
+  partidoxjugador: 'api/partidoxjugador'
 }
 
 @Injectable({

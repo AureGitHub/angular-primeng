@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { SelectItem } from 'primeng/api';
 import { Partido } from 'src/app/shared/models/partido';
-import { PartidoService } from 'src/app/shared/services/partido.service';
 import { User } from 'src/app/shared/models/user';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { DatePipe } from '@angular/common';
 import { MatDialog } from '@angular/material';
 import { DialogComponent } from 'src/app/layout/components/dialog/dialog.component';
+import { HttpGralService, apisUrl } from 'src/app/shared/services/http.gral.service';
 
 
 
@@ -37,7 +37,7 @@ export class ListaPartidosComponent implements OnInit {
     currentUser: User;
 
   constructor(
-    private partidoService: PartidoService,
+    private httpGralService: HttpGralService,
     private alertService: AlertService,
     private datePipe: DatePipe,
     public dialog: MatDialog,
@@ -50,10 +50,10 @@ export class ListaPartidosComponent implements OnInit {
 
       let partidos_: Partido[] = [];
 
-  
 
-      this.partidoService.getPartidos().subscribe(
-      data => {        
+
+      this.httpGralService.getDatas(apisUrl.partido).subscribe(
+      data => {
         partidos_ = data;
 
         partidos_.sort(function(a, b){
@@ -66,7 +66,7 @@ export class ListaPartidosComponent implements OnInit {
     });
 
 
-        this.partidoService.getPartidosXJugadores().subscribe(
+        this.httpGralService.getDatas(apisUrl.partidoxjugador).subscribe(
         data =>
         {
           partidos_.forEach(
@@ -89,7 +89,7 @@ export class ListaPartidosComponent implements OnInit {
             );
 
             this.partidos = partidos_;
-            
+
         }
       );
 
@@ -128,7 +128,7 @@ Apuntate(partido: Partido){
 
   dialogRef.afterClosed().subscribe(result => {
     if (result) {
-      this.partidoService.addPartidosXJugadores({idjugador: this.currentUser.id, idpartido: partido.id }).subscribe(
+      this.httpGralService.addData(apisUrl.partidoxjugador, {idjugador: this.currentUser.id, idpartido: partido.id }).subscribe(
         result => {
           this.getPartidos();
       });
@@ -144,7 +144,7 @@ Borrate(partido: Partido){
 
   dialogRef.afterClosed().subscribe(result => {
     if (result) {
-      this.partidoService.deletePartidosXJugadores(partido.idpartidoxjugador).subscribe(
+      this.httpGralService.deleteDataById(apisUrl.partidoxjugador, partido.idpartidoxjugador).subscribe(
         result => {
           this.getPartidos();
       });
