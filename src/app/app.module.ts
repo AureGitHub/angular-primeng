@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {CalendarModule} from 'primeng/calendar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AuthGuard } from './shared';
-import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module'
+// import { LanguageTranslationModule } from './shared/modules/language-translation/language-translation.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GeneralService } from './shared/services/general.service';
 import { AuthenticationService } from './shared/services/authentication.service';
@@ -33,7 +33,7 @@ import { LoadingService } from './shared/services/components/loading.service';
     AppRoutingModule,
     CalendarModule,
     HttpClientModule,
-    LanguageTranslationModule,
+   // LanguageTranslationModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemHeroService)
   ],
   providers: [

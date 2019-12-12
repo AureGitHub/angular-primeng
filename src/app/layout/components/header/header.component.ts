@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+// import { TranslateService } from '@ngx-translate/core';
 
 import { GeneralService } from 'src/app/shared/services/general.service';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
         public dialog: MatDialog,
         private authenticationService: AuthenticationService,
         private generalService: GeneralService,
-        private translate: TranslateService,
+        // private translate: TranslateService,
         private datePipe: DatePipe,
         public router: Router) {
           const now = new  Date();

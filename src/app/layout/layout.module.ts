@@ -24,7 +24,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     ToastModule,
     MaterialModule,
     ButtonModule,
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    MaterialModule.forRoot()
 
   ],
   entryComponents: [DialogComponent],
